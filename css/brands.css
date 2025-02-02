@@ -38,8 +38,8 @@
 	--button-border:1px solid #ffffff;
 }
 
-/* Amazon */
-.button-amazon, .button-musescore {
+/* Amazon and Musescore*/
+.button-amazon {
 	--button-text:#000000;
 	--button-background:#FFFFFF;
 	--button-border:1px solid #212121;
@@ -207,8 +207,8 @@
 	--button-border:1px solid #FFFFFF;
 }
 
-/* GitHub and smashit-blog*/
-.button-github, .button-smashit-blog {
+/* GitHub */
+.button-github {
 	--button-text:#ffffff;
 	--button-background:#000000;
 	--button-border:1px solid #FFFFFF;
@@ -352,6 +352,13 @@
 	--button-border:1px solid #FFFFFF;
 }
 
+/* Musescore */
+.button-musescore {
+	--button-text:#000000;
+	--button-background:#FFFFFF;
+	--button-border:1px solid #212121;
+}
+
 /* Notion */
 .button-notion {
 	--button-text:#000000;
@@ -430,6 +437,13 @@
 	--button-text:#000000;
 	--button-background:#FFFFFF;
 	--button-border:1px solid #212121;
+}
+
+/* Smashit Blog */
+.button-smashit-blog {
+	--button-text:#ffffff;
+	--button-background:#000000;
+	--button-border:1px solid #FFFFFF;
 }
 
 /* Snapchat */
