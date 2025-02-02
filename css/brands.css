@@ -39,7 +39,7 @@
 }
 
 /* Amazon */
-.button-amazon {
+.button-amazon{
 	--button-text:#000000;
 	--button-background:#FFFFFF;
 	--button-border:1px solid #212121;
@@ -207,8 +207,8 @@
 	--button-border:1px solid #FFFFFF;
 }
 
-/* GitHub */
-.button-github {
+/* GitHub and smashit-blog*/
+.button-github, .button-smashit-blog {
 	--button-text:#ffffff;
 	--button-background:#000000;
 	--button-border:1px solid #FFFFFF;
