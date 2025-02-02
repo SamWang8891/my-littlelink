@@ -39,7 +39,7 @@
 }
 
 /* Amazon */
-.button-amazon{
+.button-amazon, .button-musescore {
 	--button-text:#000000;
 	--button-background:#FFFFFF;
 	--button-border:1px solid #212121;
