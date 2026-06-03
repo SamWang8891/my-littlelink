@@ -1,0 +1,195 @@
+/* ============================================================
+   Custom redesign — "warm editorial minimal"
+   Layered on top of LittleLink. Loaded last so it wins.
+   Remove this <link> to revert to the stock theme.
+   ============================================================ */
+
+/* Palette ---------------------------------------------------- */
+:root {
+	--bg:#f3eee5;               /* warm cream */
+	--bg-glow:#fffaf2;
+	--card:#fffdf8;
+	--ink:#1d1a15;
+	--muted:#6c655a;
+	--hairline:rgba(40,30,15,0.08);
+	--ring:rgba(40,30,15,0.10);
+	--accent:#b4541e;           /* burnt orange */
+	--card-shadow:0 24px 60px -28px rgba(60,40,15,0.35);
+}
+
+:root.theme-dark {
+	--bg:#121019;
+	--bg-glow:#1b1826;
+	--card:#1c1924;
+	--ink:#f1ede6;
+	--muted:#a39c8f;
+	--hairline:rgba(255,255,255,0.08);
+	--ring:rgba(255,255,255,0.12);
+	--accent:#e8915c;
+	--card-shadow:0 24px 60px -28px rgba(0,0,0,0.6);
+}
+
+@media (prefers-color-scheme:dark) {
+	:root.theme-auto {
+		--bg:#121019;
+		--bg-glow:#1b1826;
+		--card:#1c1924;
+		--ink:#f1ede6;
+		--muted:#a39c8f;
+		--hairline:rgba(255,255,255,0.08);
+		--ring:rgba(255,255,255,0.12);
+		--accent:#e8915c;
+		--card-shadow:0 24px 60px -28px rgba(0,0,0,0.6);
+	}
+}
+
+/* Atmosphere ------------------------------------------------- */
+body {
+	min-height:100vh;
+	background:
+		radial-gradient(120% 80% at 50% -10%, var(--bg-glow) 0%, rgba(255,255,255,0) 55%),
+		var(--bg);
+	color:var(--ink);
+	display:flex;
+	align-items:flex-start;
+	justify-content:center;
+}
+
+.container {
+	padding-top:clamp(1.5rem, 5vw, 3.5rem);
+	padding-bottom:2.5rem;
+}
+
+/* Profile card ---------------------------------------------- */
+.column {
+	background:var(--card);
+	border:1px solid var(--hairline);
+	border-radius:1.5rem;
+	box-shadow:var(--card-shadow);
+	padding:clamp(2rem, 5vw, 3.25rem) clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Avatar with soft ring ------------------------------------- */
+.avatar {
+	box-shadow:0 0 0 1px var(--ring), 0 14px 30px -14px rgba(40,30,15,0.4);
+}
+
+/* Typography ------------------------------------------------- */
+h1 {
+	font-family:'Fraunces', Georgia, 'Times New Roman', serif;
+	font-weight:600;
+	letter-spacing:-0.01em;
+	color:var(--ink);
+}
+
+h2 {
+	font-family:'Noto Sans TC', 'Open Sans', sans-serif;
+	font-weight:500;
+	color:var(--muted);
+	font-size:var(--scale-2);
+	margin-top:0.15rem;
+}
+
+body, .bio-item {
+	font-family:'Noto Sans TC', 'Open Sans', system-ui, sans-serif;
+}
+
+.bio-item {
+	color:var(--muted);
+}
+
+:root.theme-dark .bio-item,
+.bio-item { color:var(--muted); }   /* unify with palette */
+
+/* Accent hairline under the name on wide screens */
+h2::after {
+	content:"";
+	display:block;
+	width:2.25rem;
+	height:2px;
+	margin:1.1rem auto 0;
+	border-radius:2px;
+	background:var(--accent);
+	opacity:0.85;
+}
+
+/* Buttons — keep brand colors, add depth + smoother motion --- */
+.button, button {
+	border-radius:0.75rem;
+	box-shadow:0 6px 16px -10px rgba(40,30,15,0.5);
+	transition:transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.button:hover, button:hover {
+	transform:translateY(-2px);
+	box-shadow:0 12px 22px -10px rgba(40,30,15,0.5);
+}
+
+/* Footer ----------------------------------------------------- */
+footer {
+	margin:2.5rem 0 0;
+	color:var(--muted);
+	font-size:0.85rem;
+}
+
+footer a { color:var(--accent); }
+
+/* Two-column gutter divider on large screens ---------------- */
+@media (min-width:56rem) {
+	.layout {
+		align-items:flex-start;
+		gap:3rem;
+	}
+	.profile {
+		padding-top:0.5rem;
+		text-align:left;
+	}
+	.bio {
+		margin:0;
+		align-items:flex-start;
+	}
+	.bio-item {
+		justify-content:flex-start;
+		text-align:left;
+	}
+	.links {
+		padding-left:3rem;
+		border-left:1px solid var(--hairline);
+	}
+}
+
+/* Gentle staggered load reveal ------------------------------ */
+@keyframes rise {
+	from { opacity:0; transform:translateY(12px); }
+	to   { opacity:1; transform:translateY(0); }
+}
+
+.avatar,
+h1, h2,
+.bio,
+.button-stack .button,
+footer {
+	animation:rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+h1 { animation-delay:0.05s; }
+h2 { animation-delay:0.10s; }
+.bio { animation-delay:0.16s; }
+.button-stack .button:nth-child(1)  { animation-delay:0.20s; }
+.button-stack .button:nth-child(2)  { animation-delay:0.24s; }
+.button-stack .button:nth-child(3)  { animation-delay:0.28s; }
+.button-stack .button:nth-child(4)  { animation-delay:0.32s; }
+.button-stack .button:nth-child(5)  { animation-delay:0.36s; }
+.button-stack .button:nth-child(6)  { animation-delay:0.40s; }
+.button-stack .button:nth-child(7)  { animation-delay:0.44s; }
+.button-stack .button:nth-child(8)  { animation-delay:0.48s; }
+.button-stack .button:nth-child(9)  { animation-delay:0.52s; }
+.button-stack .button:nth-child(10) { animation-delay:0.56s; }
+.button-stack .button:nth-child(11) { animation-delay:0.60s; }
+footer { animation-delay:0.66s; }
+
+@media (prefers-reduced-motion:reduce) {
+	.avatar, h1, h2, .bio, .button-stack .button, footer {
+		animation:none;
+	}
+}
