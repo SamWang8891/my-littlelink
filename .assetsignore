@@ -1,0 +1,18 @@
+# Files excluded from the deployed Worker static assets.
+# The published site is just index.html + css/ + images/ + fonts/.
+# Everything below is repo/dev tooling and should not be publicly served.
+
+# Config & docs
+README.md
+LICENSE.md
+wrangler.toml
+.assetsignore
+.gitignore
+.pre-commit-config.yaml
+
+# Dev/deploy tooling directories
+docker/
+.do/
+.github/
+.idea/
+.claude/
