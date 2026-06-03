@@ -2,6 +2,9 @@
 # The published site is just index.html + css/ + images/ + fonts/.
 # Everything below is repo/dev tooling and should not be publicly served.
 
+# Version control (the whole repo root is the asset dir, so .git is otherwise uploaded)
+.git/
+
 # Config & docs
 README.md
 LICENSE.md
